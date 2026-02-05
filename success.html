@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Order Successful</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f4f4f4;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .box {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+            animation: pop .4s ease;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(.7);
+                opacity: 0
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        .box img {
+            width: 130px
+        }
+
+        .box h2 {
+            color: #e23744;
+            margin: 15px 0 6px
+        }
+
+        .box p {
+            color: #555
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <img src="https://i.pinimg.com/originals/1b/09/f2/1b09f2fcb514a13829bbb57721a5404e.gif">
+        <h2>Order Placed Successfully 🎉</h2>
+        <p>Your food is on the way</p>
+    </div>
+
+</body>
+
+</html>

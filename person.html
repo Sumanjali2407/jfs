@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Info</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.4;
+            font-size: 14px;
+
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 18px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 25px auto;
+            background: white;
+            padding: 22px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid black;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #2c3e50;
+        }
+
+        h3 {
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        h4 {
+            font-size: 15px;
+            color: #2c3e50;
+        }
+
+        p {
+            margin: 4px 0 8px;
+            font-size: 14px;
+        }
+
+        .skills {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills li {
+            background: black;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 13px;
+        }
+
+        form {
+            background-color: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            max-width: 380px;
+            font-size: 13px;
+        }
+
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 6px;
+            margin-top: 4px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        input[type="submit"] {
+            background-color: black;
+            color: white;
+            padding: 8px 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 0;
+            margin-top: 25px;
+            font-size: 13px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            const phone = document.getElementById("phone").value;
+
+            if (phone.length !== 10 || isNaN(phone)) {
+                alert("Please enter a valid 10-digit phone number");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+        <center>
+            <h1>Yalamandala Sumanjali</h1>
+        </center>
+    </header>
+
+    <main>
+
+        <section>
+            <h4>Introduction</h4>
+            <p>
+                I am Sumanjali Yalamandala, pursuing my B.Tech in Computer Science and Engineering at
+                CVR College of Engineering. I am interested in web development and building
+                user-friendly websites.
+            </p>
+        </section>
+
+        <section>
+            <h3>Skills</h3>
+            <ul class="skills">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>Node.js</li>
+                <li>Express.js</li>
+                <li>MongoDB</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Academic Projects</h3>
+            <ul>
+                <li><b>Digital Diary</b></li>
+                <p>
+                    A web application to manage personal records with add, delete,
+                    and view features.
+                </p>
+                <p><b>Skills Used:</b> HTML, CSS, Python, Flask</p>
+
+                <li><b>Poetry Sharing Platform</b></li>
+                <p>
+                    A full-stack application to share poems with profiles,
+                    likes, and comments.
+                </p>
+                <p><b>Skills Used:</b> HTML, CSS, JavaScript, Node.js, Express.js, MongoDB</p>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Contact Me</h2>
+            <form onsubmit="return validateForm()">
+                <label>Email</label>
+                <input type="email" id="email" validate>
+
+                <br><br>
+
+                <label>Phone</label>
+                <input type="tel" id="phone" maxlength="10">
+
+                <br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <center>
+            &copy; 2026 Sumanjali Yalamandala
+        </center>
+    </footer>
+
+</body>
+
+</html>

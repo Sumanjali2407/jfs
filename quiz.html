@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Online Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .quiz-container {
+            width: 400px;
+            margin: 80px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="quiz-container">
+        <h1>Online Quiz</h1>
+
+        <div id="quiz">
+            <h2 id="question"></h2>
+
+            <label>
+                <input type="radio" name="answer" value="a">
+                <span id="optionA"></span>
+            </label>
+
+            <label>
+                <input type="radio" name="answer" value="b">
+                <span id="optionB"></span>
+            </label>
+
+            <label>
+                <input type="radio" name="answer" value="c">
+                <span id="optionC"></span>
+            </label>
+
+            <label>
+                <input type="radio" name="answer" value="d">
+                <span id="optionD"></span>
+            </label>
+
+            <button onclick="nextQuestion()">Next</button>
+        </div>
+
+        <h2 id="result"></h2>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "Which language runs in a web browser?",
+                a: "Java",
+                b: "C",
+                c: "Python",
+                d: "JavaScript",
+                correct: "d"
+            },
+            {
+                question: "HTML stands for?",
+                a: "Hyper Text Markup Language",
+                b: "High Text Machine Language",
+                c: "Hyperlinks Text Mark Language",
+                d: "None",
+                correct: "a"
+            },
+            {
+                question: "Which is used for styling web pages?",
+                a: "HTML",
+                b: "CSS",
+                c: "Java",
+                d: "Python",
+                correct: "b"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            let q = quizData[currentQuestion];
+            document.getElementById("question").innerText = q.question;
+            document.getElementById("optionA").innerText = q.a;
+            document.getElementById("optionB").innerText = q.b;
+            document.getElementById("optionC").innerText = q.c;
+            document.getElementById("optionD").innerText = q.d;
+        }
+
+        function getSelectedAnswer() {
+            let answers = document.getElementsByName("answer");
+            for (let i = 0; i < answers.length; i++) {
+                if (answers[i].checked) {
+                    return answers[i].value;
+                }
+            }
+            return null;
+        }
+
+        function nextQuestion() {
+            let selectedAnswer = getSelectedAnswer();
+
+            if (selectedAnswer === null) {
+                alert("Please select an answer!");
+                return;
+            }
+
+            if (selectedAnswer === quizData[currentQuestion].correct) {
+                score++;
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+                let radios = document.getElementsByName("answer");
+                for (let i = 0; i < radios.length; i++) {
+                    radios[i].checked = false;
+                }
+            } else {
+                document.getElementById("quiz").style.display = "none";
+                document.getElementById("result").innerText =
+                    "Your Score: " + score + " / " + quizData.length;
+            }
+        }
+
+        loadQuestion();
+    </script>
+
+</body>
+
+</html>
