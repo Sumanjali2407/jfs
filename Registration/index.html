@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login & Register with CAPTCHA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="form-box">
+            <h2 id="formTitle">Register</h2>
+
+            <form id="authForm">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+
+                <!-- CAPTCHA -->
+                <div class="captcha-box">
+                    <span id="captchaText"></span>
+                    <button type="button" onclick="generateCaptcha()">↻</button>
+                </div>
+
+                <input type="text" id="captchaInput" placeholder="Enter CAPTCHA" required>
+
+                <button type="submit">Submit</button>
+                <p class="toggle" onclick="toggleForm()">Already registered? Login</p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
